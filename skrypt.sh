@@ -18,6 +18,10 @@ case "$1" in
    	 echo "--logs n, -l n  : Tworzy n plikow log"
 	 echo "--help, -h      : Wyswietla ta wiadomosc"
         ;;
+    --init)
+	git clone https://github.com/dominikwiench/lab4
+	export PATH=$PATH:$(pwd)/lab4
+	;;
     *)
         echo "Nieprawidlowy parametr. Uzyj --help lub -h po wiecej opcji."
         ;;
