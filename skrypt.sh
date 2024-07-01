@@ -1,23 +1,24 @@
 #!/bin/bash
 
-if [ "$1" == "--date" ]; then
-    date
-fi
-
-if [ "$1" == "--logs" ]; then
-    count=${2:-100}
-
-    for ((i=1; i<=count; i++)); do
-        filename="log${i}.txt"
-        echo "Nazwa pliku: $filename, nazwa skryptu: $0, Data: $(date)" > $filename
-    done
-fi
-
-if [ "$1" == "--help" ]; then
-    echo "Dostepne opcje:"
-    echo "--date    : Wyswietla dzisiejsza date"
-    echo "--logs    : Tworzy pliki log (bazowo skrypt tworzy 100 plikow)"
-    echo "--logs n  : Tworzy n plikow log"
-    echo "--help    : Wyswietla ta wiadomosc"
-fi
-
+case "$1" in
+    --date|-d)
+        date
+        ;;
+    --logs|-l)
+        count=${2:-100}
+        for ((i=1; i<=count; i++)); do
+            filename="log${i}.txt"
+            echo "Nazwa pliku: $filename, nazwa skryptu: $0, data: $(date)" > $filename
+        done
+        ;;
+    --help|-h)
+   	 echo "Dostepne opcje:"
+   	 echo "--date, -d      : Wyswietla dzisiejsza date"
+   	 echo "--logs, -l      : Tworzy pliki log (bazowo skrypt tworzy 100 plikow)"
+   	 echo "--logs n, -l n  : Tworzy n plikow log"
+	 echo "--help, -h      : Wyswietla ta wiadomosc"
+        ;;
+    *)
+        echo "Nieprawidlowy parametr. Uzyj --help lub -h po wiecej opcji."
+        ;;
+esac
