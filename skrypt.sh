@@ -12,3 +12,12 @@ if [ "$1" == "--logs" ]; then
         echo "Nazwa pliku: $filename, nazwa skryptu: $0, Data: $(date)" > $filename
     done
 fi
+
+if [ "$1" == "--help" ]; then
+    echo "Dostepne opcje:"
+    echo "--date    : Wyswietla dzisiejsza date"
+    echo "--logs    : Tworzy pliki log (bazowo skrypt tworzy 100 plikow)"
+    echo "--logs n  : Tworzy n plikow log"
+    echo "--help    : Wyswietla ta wiadomosc"
+fi
+
