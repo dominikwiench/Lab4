@@ -11,6 +11,14 @@ case "$1" in
             echo "Nazwa pliku: $filename, nazwa skryptu: $0, data: $(date)" > $filename
         done
         ;;
+    --error|-e)
+	count=${2:-100}
+	mkdir -p errorx
+	for ((i=1; i<=count; i++)); do
+	    filename="errorx/error${i}.txt"
+	    echo "Nazwa pliku: $filename, nazwa skryptu: $0, data: $(date) > $filename
+	done
+	;;
     --help|-h)
    	 echo "Dostepne opcje:"
    	 echo "--date, -d      : Wyswietla dzisiejsza date"
